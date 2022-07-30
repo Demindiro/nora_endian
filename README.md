@@ -1,5 +1,9 @@
 # Nora endian
 
+[![docs.rs](https://docs.rs/nora_endian/badge.svg)](https://docs.rs/nora_endian)
+[![crates.io](https://img.shields.io/crates/v/nora_endian.svg)](https://crates.io/crates/nora_endian)
+[![crates.io](https://img.shields.io/crates/d/nora_endian.svg)](https://crates.io/crates/nora_endian)
+
 Yet another crate to deal with endianness, though focused on simplicity
 
 ## Example
