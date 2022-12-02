@@ -2,7 +2,7 @@
 #![no_std]
 #![deny(unsafe_code)]
 
-use core::{fmt, num::*, ops::*};
+use core::{cmp::Ordering, fmt, num::*, ops::*};
 
 macro_rules! ety {
 	($name:ident, $ty:ty, $trait:ident.$fn:ident, $traitas:ident.$fnas:ident) => {
@@ -63,6 +63,18 @@ macro_rules! ety {
 		impl PartialEq<$name> for $ty {
 			fn eq(&self, rhs: &$name) -> bool {
 				self.eq(&<$ty>::from(*rhs))
+			}
+		}
+
+		impl PartialOrd<$ty> for $name {
+			fn partial_cmp(&self, rhs: &$ty) -> Option<Ordering> {
+				<$ty>::from(*self).partial_cmp(rhs)
+			}
+		}
+
+		impl PartialOrd<$name> for $ty {
+			fn partial_cmp(&self, rhs: &$name) -> Option<Ordering> {
+				self.partial_cmp(&<$ty>::from(*rhs))
 			}
 		}
 
