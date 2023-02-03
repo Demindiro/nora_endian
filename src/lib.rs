@@ -138,6 +138,8 @@ macro_rules! ety {
 		ety!($name, $ty, BitOr.bitor, BitOrAssign.bitor_assign);
 		ety!($name, $ty, BitAnd.bitand, BitAndAssign.bitand_assign);
 		ety!($name, $ty, BitXor.bitxor, BitXorAssign.bitxor_assign);
+		ety!($name, $ty, Shl.shl, ShlAssign.shl_assign);
+		ety!($name, $ty, Shr.shr, ShrAssign.shr_assign);
 
 		impl Not for $name {
 			type Output = Self;
@@ -192,30 +194,38 @@ macro_rules! ety {
 ety!(be u16, u16be);
 ety!(be u32, u32be);
 ety!(be u64, u64be);
+ety!(be u128, u128be);
 ety!(le u16, u16le);
 ety!(le u32, u32le);
 ety!(le u64, u64le);
+ety!(le u128, u128le);
 
 ety!(be i16, i16be);
 ety!(be i32, i32be);
 ety!(be i64, i64be);
+ety!(be i128, i128be);
 ety!(le i16, i16le);
 ety!(le i32, i32le);
 ety!(le i64, i64le);
+ety!(le i128, i128le);
 
 ety!(nz be u16be, NonZeroU16, NonZeroU16be);
 ety!(nz be u32be, NonZeroU32, NonZeroU32be);
 ety!(nz be u64be, NonZeroU64, NonZeroU64be);
+ety!(nz be u128be, NonZeroU128, NonZeroU128be);
 ety!(nz le u16le, NonZeroU16, NonZeroU16le);
 ety!(nz le u32le, NonZeroU32, NonZeroU32le);
 ety!(nz le u64le, NonZeroU64, NonZeroU64le);
+ety!(nz le u128le, NonZeroU128, NonZeroU128le);
 
 ety!(nz be i16be, NonZeroI16, NonZeroI16be);
 ety!(nz be i32be, NonZeroI32, NonZeroI32be);
 ety!(nz be i64be, NonZeroI64, NonZeroI64be);
+ety!(nz be i128be, NonZeroI128, NonZeroI128be);
 ety!(nz le i16le, NonZeroI16, NonZeroI16le);
 ety!(nz le i32le, NonZeroI32, NonZeroI32le);
 ety!(nz le i64le, NonZeroI64, NonZeroI64le);
+ety!(nz le i128le, NonZeroI128, NonZeroI128le);
 
 #[cfg(test)]
 mod test {
